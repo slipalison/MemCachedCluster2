@@ -64,7 +64,8 @@
       - memcached-node-4
     networks:
       - memcached-network
-    command: mcrouter -p 5000 --config-str='{"pools":{"A":{"servers":["memcached-node-1:11211","memcached-node-2:11211"]},"B":{"servers":["memcached-node-3:11211","memcached-node-4:11211"]}},"route":{"type":"OperationSelectorRoute","default_policy":"PoolRoute|A","operation_policies":{"set":{"type":"AllSyncRoute","children":["PoolRoute|A","PoolRoute|B"]},"get":{"type":"LatestRoute","children":["PoolRoute|A","PoolRoute|B"]}}}}'
+    #command: mcrouter -p 5000 --config-str='{"pools":{"A":{"servers":["memcached-node-1:11211","memcached-node-2:11211"]},"B":{"servers":["memcached-node-3:11211","memcached-node-4:11211"]}},"route":{"type":"OperationSelectorRoute","default_policy":"PoolRoute|A","operation_policies":{"set":{"type":"AllSyncRoute","children":["PoolRoute|A","PoolRoute|B"]},"get":{"type":"LatestRoute","children":["PoolRoute|A","PoolRoute|B"]}}}}'
+    command: mcrouter -p 5000 --config-str='{"pools":{"A":{"servers":["memcached-node-1:11211","memcached-node-2:11211","memcached-node-3:11211","memcached-node-4:11211"]}},"route":{"type":"OperationSelectorRoute","default_policy":"PoolRoute|A","operation_policies":{"set":{"type":"AllSyncRoute","children":["PoolRoute|A"]},"get":{"type":"LatestRoute","children":["PoolRoute|A"]}}}}'
     #command: mcrouter -p 5000 --config-str='{"pools":{ "A":{"servers":["memcached-node-1:11211","memcached-node-2:11211","memcached-node-3:11211","memcached-node-4:11211"]}},"route":"PoolRoute|A"}'
     volumes:
       - ./spool:/var/spool/mcrouter
