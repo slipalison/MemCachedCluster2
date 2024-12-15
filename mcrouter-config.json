@@ -1,0 +1,22 @@
+{
+  "pools":{
+    "A":{
+      "servers":["memcached-node-1:11211", "memcached-node-2:11211"]
+    }, "B":{
+      "servers":["memcached-node-3:11211", "memcached-node-4:11211"]
+    }
+  },
+  "route":{
+    "type":"OperationSelectorRoute",
+    "default_policy":"PoolRoute|A",
+    "operation_policies":{
+      "set":{
+        "type":"AllSyncRoute",
+        "children":["PoolRoute|A", "PoolRoute|B"]
+      }, "get":{
+        "type":"LatestRoute",
+        "children":["PoolRoute|A", "PoolRoute|B"]
+      }
+    }
+  }
+}

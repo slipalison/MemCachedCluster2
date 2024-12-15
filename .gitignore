@@ -1,0 +1,42 @@
+# Ignore ASP.NET Core build results
+bin/
+obj/
+
+# User-specific files
+.idea/
+.vscode/
+
+# Rider specific files
+.idea/
+.idea/*
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# ASP.NET Core
+appsettings.Development.json
+appsettings.Local.json
+
+# npm packages
+node_modules/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# ASP.NET temporary files
+wwwroot/lib/
